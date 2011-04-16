@@ -53,6 +53,7 @@ bline = lines[0]
 if bline.find('Not currently on any branch') != -1:
 	branch = symbols['sha1']+ Popen(['git','rev-parse','--short','HEAD'], stdout=PIPE).communicate()[0][:-1]
 else:
+	sha1 = symbols['sha1']+ Popen(['git','rev-parse','--short','HEAD'], stdout=PIPE).communicate()[0][:-1]
 	branch = bline.split(' ')[3]
 	bstatusline = lines[1]
 	match = behead_re.match(bstatusline)
@@ -64,5 +65,5 @@ else:
 	 	if div_match:
 			remote = "{behind}{1}{ahead of}{0}".format(*div_match.groups(), **symbols)
 
-print '\n'.join([branch,remote,status])
+print '\n'.join([branch,remote,status,sha1])
 
