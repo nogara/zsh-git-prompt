@@ -1,7 +1,7 @@
 # To install source this file from your .zshrc file
 
 # Change this to reflect your installation directory
-export __GIT_PROMPT_DIR=~/.zsh/git-prompt
+export __GIT_PROMPT_DIR=~/.oh-my-zsh/custom/zsh-git-prompt
 # Initialize colors.
 autoload -U colors
 colors
@@ -54,6 +54,6 @@ function prompt_git_info() {
 }
 
 # Set the prompt.
-PROMPT='%B%m%~%b$(prompt_git_info) %# '
+#PROMPT='%B%m%~%b$(prompt_git_info) %# '
 # for a right prompt:
-# RPROMPT='%b$(prompt_git_info)'
+RPROMPT='%b$(prompt_git_info)'
